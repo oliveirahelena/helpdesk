@@ -10,4 +10,3 @@ test-results
 docs
 .env
 .env.local
-packages/database/src/migrations/meta
