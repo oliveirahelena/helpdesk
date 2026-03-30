@@ -16,7 +16,8 @@ export function createAuth(env: ApiEnv, db: AppDatabase) {
       schema
     }),
     emailAndPassword: {
-      enabled: true
+      enabled: true,
+      disableSignUp: true
     }
   });
 }

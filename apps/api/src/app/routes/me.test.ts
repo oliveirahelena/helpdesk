@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 
+import { createInternalUser } from "./auth-test-helpers";
 import { buildApp } from "../build-app";
 
 describe("GET /api/me", () => {
@@ -22,20 +23,26 @@ describe("GET /api/me", () => {
   test("returns the current session when authenticated", async () => {
     const app = await buildApp();
     const email = `me-route-${Date.now()}@example.com`;
+    const password = "ChangeMe123!";
 
-    const signUpResponse = await app.inject({
+    await createInternalUser(app, {
+      email,
+      password,
+      name: "Session User"
+    });
+
+    const signInResponse = await app.inject({
       method: "POST",
-      url: "/api/auth/sign-up/email",
+      url: "/api/auth/sign-in/email",
       payload: {
         email,
-        password: "ChangeMe123!",
-        name: "Session User"
+        password
       }
     });
 
-    expect(signUpResponse.statusCode).toBe(200);
+    expect(signInResponse.statusCode).toBe(200);
 
-    const cookieHeader = signUpResponse.cookies.map((cookie) => `${cookie.name}=${cookie.value}`).join("; ");
+    const cookieHeader = signInResponse.cookies.map((cookie) => `${cookie.name}=${cookie.value}`).join("; ");
 
     const meResponse = await app.inject({
       method: "GET",

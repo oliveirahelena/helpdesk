@@ -1,4 +1,4 @@
-import type { FastifyReply, FastifyRequest } from "fastify";
+import type { preHandlerHookHandler } from "fastify";
 import fp from "fastify-plugin";
 import { fromNodeHeaders } from "better-auth/node";
 
@@ -11,7 +11,7 @@ type AuthSession = NonNullable<
 declare module "fastify" {
   interface FastifyInstance {
     auth: ReturnType<typeof createAuth>;
-    requireAuth: (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
+    requireAuth: preHandlerHookHandler;
   }
 
   interface FastifyRequest {
