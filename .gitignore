@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.turbo
+coverage
+playwright-report
+test-results
+.agents
+.claude
+docs
+.env
+.env.local
+bun.lock
+packages/database/src/migrations/meta

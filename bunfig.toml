@@ -1,0 +1,5 @@
+[install]
+dev = true
+optional = true
+peer = true
+frozenLockfile = false

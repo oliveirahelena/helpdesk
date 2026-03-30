@@ -1,0 +1,22 @@
+
+  [32m[1mVITE[22m v7.3.1[39m  [2mready in [0m[1m661[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css, /src/features/dashboard/dashboard-page.tsx[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/dashboard.tsx[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css, /src/features/dashboard/dashboard-page.tsx[22m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mzod[32m[39m
+[2m14:24:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m14:27:44[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/dashboard.tsx[22m
+[2m14:27:44[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/router.tsx[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/routes/home.tsx[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css, /src/features/dashboard/dashboard-page.tsx[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/styles/index.css[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/features/dashboard/api/get-health-check.ts[22m
+[2m14:32:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/features/dashboard/hooks/use-health-check.ts[22m

@@ -1,0 +1,9 @@
+{
+  "extends": "../../packages/config/typescript/workers.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ]
+}

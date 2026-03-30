@@ -1,0 +1,18 @@
+{
+  "name": "@helpdesk/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./typescript/base": "./typescript/base.json",
+    "./typescript/web": "./typescript/web.json",
+    "./typescript/api": "./typescript/api.json",
+    "./typescript/workers": "./typescript/workers.json",
+    "./typescript/package": "./typescript/package.json",
+    "./eslint/base": "./eslint/base.js",
+    "./eslint/react": "./eslint/react.js",
+    "./eslint/node": "./eslint/node.js",
+    "./vitest/base": "./vitest/base.ts",
+    "./playwright/base": "./playwright/base.ts"
+  }
+}

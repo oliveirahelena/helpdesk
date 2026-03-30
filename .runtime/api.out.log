@@ -1,0 +1,14 @@
+{"level":30,"time":1774861052899,"pid":65604,"hostname":"informach-tocha","msg":"observability scaffold registered"}
+{"level":30,"time":1774861052930,"pid":65604,"hostname":"informach-tocha","msg":"Server listening at http://127.0.0.1:3001"}
+{"level":30,"time":1774861052930,"pid":65604,"hostname":"informach-tocha","msg":"Server listening at http://172.25.176.1:3001"}
+{"level":30,"time":1774861052930,"pid":65604,"hostname":"informach-tocha","msg":"Server listening at http://172.31.128.1:3001"}
+{"level":30,"time":1774861052930,"pid":65604,"hostname":"informach-tocha","msg":"Server listening at http://192.168.0.10:3001"}
+{"level":30,"time":1774861066934,"pid":65604,"hostname":"informach-tocha","reqId":"req-1","req":{"method":"GET","url":"/health","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":64528},"msg":"incoming request"}
+{"level":30,"time":1774861066945,"pid":65604,"hostname":"informach-tocha","reqId":"req-1","res":{"statusCode":200},"responseTime":10.636200000000827,"msg":"request completed"}
+{"level":30,"time":1774861306368,"pid":65604,"hostname":"informach-tocha","reqId":"req-2","req":{"method":"GET","url":"/health","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":58901},"msg":"incoming request"}
+{"level":30,"time":1774861306370,"pid":65604,"hostname":"informach-tocha","reqId":"req-2","res":{"statusCode":200},"responseTime":1.1830000000190921,"msg":"request completed"}
+{"level":30,"time":1774861306501,"pid":65604,"hostname":"informach-tocha","reqId":"req-3","req":{"method":"GET","url":"/favicon.ico","host":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":58901},"msg":"incoming request"}
+{"level":30,"time":1774861306502,"pid":65604,"hostname":"informach-tocha","reqId":"req-3","msg":"Route GET:/favicon.ico not found"}
+{"level":30,"time":1774861306502,"pid":65604,"hostname":"informach-tocha","reqId":"req-3","res":{"statusCode":404},"responseTime":0.7213000000047032,"msg":"request completed"}
+{"level":30,"time":1774891468928,"pid":65604,"hostname":"informach-tocha","reqId":"req-4","req":{"method":"GET","url":"/health","host":"localhost:3001","remoteAddress":"127.0.0.1","remotePort":63847},"msg":"incoming request"}
+{"level":30,"time":1774891468931,"pid":65604,"hostname":"informach-tocha","reqId":"req-4","res":{"statusCode":200},"responseTime":1.5290999971330166,"msg":"request completed"}

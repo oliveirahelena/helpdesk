@@ -1,0 +1,26 @@
+name: deploy-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.2.18"
+      - name: Install dependencies
+        run: bun ci
+      - name: Build web artifact
+        run: bun run --cwd apps/web build
+      - name: Build api image
+        run: docker build -f apps/api/Dockerfile -t helpdesk-api:latest .
+      - name: Build workers image
+        run: docker build -f apps/workers/Dockerfile -t helpdesk-workers:latest .
+      - name: Release deploy stub
+        run: echo "Promote staging artifacts to production here."
