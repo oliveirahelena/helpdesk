@@ -10,5 +10,4 @@ test-results
 docs
 .env
 .env.local
-bun.lock
 packages/database/src/migrations/meta
