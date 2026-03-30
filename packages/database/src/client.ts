@@ -1,4 +1,4 @@
-import { drizzle } from "drizzle-orm/node-postgres";
+import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { Client } from "pg";
 
 import * as schema from "./schema";
@@ -7,6 +7,8 @@ export interface DatabaseClientConfig {
   databaseUrl: string;
   enableLogger: boolean;
 }
+
+export type DatabaseInstance = NodePgDatabase<typeof schema>;
 
 export function createDatabaseClient(config: DatabaseClientConfig) {
   const client = new Client({

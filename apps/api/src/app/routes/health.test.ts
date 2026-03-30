@@ -16,5 +16,7 @@ describe("GET /health", () => {
       status: "ok",
       service: "api"
     });
+
+    await app.close();
   });
 });
