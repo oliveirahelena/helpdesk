@@ -194,4 +194,28 @@ describe("web foundation router", () => {
       password: "password123"
     });
   });
+
+  test("blocks submit when the login form is invalid", async () => {
+    mockUseSession.mockReturnValue({
+      data: null,
+      isPending: false
+    });
+    mockGetSession.mockResolvedValue({ data: null });
+
+    await router.navigate({ to: "/login" });
+
+    render(<RouterProvider router={router} />);
+
+    fireEvent.change(await screen.findByLabelText(/email/i), {
+      target: { value: "not-an-email" }
+    });
+    fireEvent.change(screen.getByLabelText(/password/i), {
+      target: { value: "" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: /^sign in$/i }));
+
+    expect(await screen.findByText(/enter a valid email address\./i)).toBeInTheDocument();
+    expect(await screen.findByText(/enter your password\./i)).toBeInTheDocument();
+    expect(mockSignInEmail).not.toHaveBeenCalled();
+  });
 });
