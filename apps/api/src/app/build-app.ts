@@ -9,6 +9,20 @@ import { databasePlugin } from "./plugins/database";
 import { observabilityPlugin } from "./plugins/observability";
 import { routesPlugin } from "./plugins/routes";
 
+function isAllowedWebOrigin(origin: string, configuredWebAppUrl: string) {
+  if (origin === configuredWebAppUrl) {
+    return true;
+  }
+
+  try {
+    const originUrl = new URL(origin);
+
+    return originUrl.protocol === "http:" && (originUrl.hostname === "localhost" || originUrl.hostname === "127.0.0.1");
+  } catch {
+    return false;
+  }
+}
+
 export async function buildApp() {
   const env = loadApiEnv();
 
@@ -17,7 +31,15 @@ export async function buildApp() {
   });
 
   await app.register(cors, {
-    origin: true
+    origin: (origin, callback) => {
+      if (!origin || isAllowedWebOrigin(origin, env.WEB_APP_URL)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Origin not allowed by CORS."), false);
+    },
+    credentials: true
   });
   await app.register(configPlugin);
   await app.register(databasePlugin);

@@ -6,10 +6,12 @@ import { ticketDetailRoute } from "../routes/_authenticated/tickets/$ticketId";
 import { ticketsRoute } from "../routes/_authenticated/tickets/index";
 import { usersRoute } from "../routes/_authenticated/users/index";
 import { homeRoute } from "../routes/home";
+import { loginRoute } from "../routes/login";
 import { rootRoute } from "../routes/__root";
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
+  loginRoute,
   authenticatedRoute.addChildren([dashboardRoute, ticketsRoute, ticketDetailRoute, usersRoute])
 ]);
 

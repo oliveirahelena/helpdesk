@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const webEnvSchema = z.object({
-  VITE_API_BASE_URL: z.string().url()
+  VITE_API_BASE_URL: z.url()
 });
 
 export const webEnv = webEnvSchema.parse({
