@@ -15,6 +15,16 @@ export function createAuth(env: ApiEnv, db: AppDatabase) {
       provider: "pg",
       schema
     }),
+    user: {
+      additionalFields: {
+        role: {
+          type: ["admin", "agent"],
+          required: false,
+          defaultValue: "agent",
+          input: false
+        }
+      }
+    },
     emailAndPassword: {
       enabled: true,
       disableSignUp: true

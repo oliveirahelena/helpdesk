@@ -4,6 +4,7 @@ export const user = pgTable("users", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
+  role: text("role").notNull().default("agent"),
   emailVerified: boolean("email_verified").default(false).notNull(),
   image: text("image"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
