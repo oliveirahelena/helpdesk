@@ -17,7 +17,7 @@ export function createAuth(env: ApiEnv, db: AppDatabase, options: CreateAuthOpti
     appName: "HelpDesk",
     baseURL: env.BETTER_AUTH_URL,
     secret: env.BETTER_AUTH_SECRET,
-    trustedOrigins: [env.WEB_APP_URL, "http://localhost:*", "http://127.0.0.1:*"],
+    trustedOrigins: [env.WEB_APP_URL, ...env.BETTER_AUTH_TRUSTED_ORIGINS],
     database: drizzleAdapter(db, {
       provider: "pg",
       schema
