@@ -1,14 +1,11 @@
 import { z } from "zod";
-import { betterAuth } from "better-auth";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
-import * as schema from "@helpdesk/database/schema";
-
+import { createAuth } from "../platform/auth/auth";
 import { loadApiEnv } from "../platform/config/env";
 import { createPlatformDatabase } from "../platform/db/connection";
 
 const adminSeedEnvSchema = z.object({
-  ADMIN_EMAIL: z.string().email(),
+  ADMIN_EMAIL: z.email(),
   ADMIN_PASSWORD: z.string().min(8),
   ADMIN_NAME: z.string().min(1).default("System Admin")
 });
@@ -31,33 +28,18 @@ async function main() {
     });
 
     if (existingAdmin) {
-      await database.client.query("UPDATE users SET role = $1 WHERE email = $2", ["admin", adminEnv.ADMIN_EMAIL]);
-      console.log(`Admin user already exists for ${adminEnv.ADMIN_EMAIL}`);
-      return;
+      if (existingAdmin.role === "admin") {
+        console.log(`Admin user already exists for ${adminEnv.ADMIN_EMAIL}`);
+        return;
+      }
+
+      throw new Error(
+        `User ${adminEnv.ADMIN_EMAIL} already exists with role ${existingAdmin.role}. Refusing to promote automatically.`
+      );
     }
 
-    const auth = betterAuth({
-      appName: "HelpDesk",
-      baseURL: env.BETTER_AUTH_URL,
-      secret: env.BETTER_AUTH_SECRET,
-      database: drizzleAdapter(database.db, {
-        provider: "pg",
-        schema
-      }),
-      user: {
-        additionalFields: {
-          role: {
-            type: ["admin", "agent"],
-            required: false,
-            defaultValue: "agent",
-            input: false
-          }
-        }
-      },
-      emailAndPassword: {
-        enabled: true,
-        disableSignUp: false
-      }
+    const auth = createAuth(env, database.db, {
+      disableEmailPasswordSignUp: false
     });
 
     const response = await auth.handler(
@@ -69,8 +51,7 @@ async function main() {
         body: JSON.stringify({
           email: adminEnv.ADMIN_EMAIL,
           password: adminEnv.ADMIN_PASSWORD,
-          name: adminEnv.ADMIN_NAME,
-          role: "admin"
+          name: adminEnv.ADMIN_NAME
         })
       })
     );

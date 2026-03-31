@@ -6,7 +6,13 @@ import * as schema from "@helpdesk/database/schema";
 import type { ApiEnv } from "../config/env";
 import type { AppDatabase } from "../db/connection";
 
-export function createAuth(env: ApiEnv, db: AppDatabase) {
+type CreateAuthOptions = {
+  disableEmailPasswordSignUp?: boolean;
+};
+
+export function createAuth(env: ApiEnv, db: AppDatabase, options: CreateAuthOptions = {}) {
+  const disableEmailPasswordSignUp = options.disableEmailPasswordSignUp ?? true;
+
   return betterAuth({
     appName: "HelpDesk",
     baseURL: env.BETTER_AUTH_URL,
@@ -27,7 +33,7 @@ export function createAuth(env: ApiEnv, db: AppDatabase) {
     },
     emailAndPassword: {
       enabled: true,
-      disableSignUp: true
+      disableSignUp: disableEmailPasswordSignUp
     }
   });
 }
